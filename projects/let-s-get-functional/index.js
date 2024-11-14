@@ -5,7 +5,8 @@
 var customers = require('./data/customers.json');
 var _ = require('underbar');
 
-/**
+/**  * THERE IS NO INDEX.HTML TO preview / view tests
+ * 
  * 1. Import your lodown module using the require() method,
  *    using the string 'lodown-<my-username>', or whatever
  *    name with which you published your npm lodown project.
@@ -16,13 +17,21 @@ var _ = require('underbar');
  *
  * 4. To test your work, run the following command in your terminal:
  *
+ *      In terminal type "cd .."
+ * 
+ * then the directory changes to your name, then paste and run the code below (no extra spaces /asteriscs)
+ * 
  *    npm start --prefix ./let-s-get-functional.github.io/projects/let-s-get-functional
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
- */
+
+// WHAT YOU ARE TRYING TO DO HERE IS USE THE FUNCTIONS LIBRARY to accomplish the tasks below
+//  _.Map , Filter, Reduce, Each, Index etc.
+*/
 
 var maleCount = function(array) {
-
+    let males = _.filter(array, (customer) => customer.gender === "male");
+return males.length;
 };
 
 var femaleCount;
