@@ -53,15 +53,42 @@ var femaleCount = function(array){
 
 // console.log(femaleCount(customers));
 
-var oldestCustomer;
+var oldestCustomer = function(array){
+    let oldestName = "";
+    let oldestAge = 0;
+    // let oldestIndex = 0;
+
+    oldestName = _.reduce(array, function(seed, customer){ 
+        if (customer.age > oldestAge){
+            oldestAge = customer.age;
+            seed = customer.name;
+        }
+        return seed;
+    }, "");
+    return oldestName;
+};
 
 // this needs sommme kind of comparative logic, each against the prev...
 
 // take the 0 index age value and add it to the accumulator...call it oldest
 
-// also record the index of oldest... (or just assign oldest as the object that is currently oldes.)
+// also record the index of oldest... (or just assign oldest as the object that is currently oldest?)
 
-var youngestCustomer;
+// compare the age value each time, just don't record over the oldest ones, don't confuse oldest and current.
+
+var youngestCustomer = function(array){
+    let youngestName = "";
+    let youngestAge = 100000;
+
+    youngestName = _.reduce(array, function(seed, customer){ 
+        if (customer.age < youngestAge){
+            youngestAge = customer.age;
+            seed = customer.name;
+        }
+        return seed;
+    }, "");
+    return youngestName;
+};;
 
 var averageBalance;
 
