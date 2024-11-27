@@ -1,4 +1,4 @@
-// #!/usr/bin/env node
+#!/usr/bin/env node
 
 'use strict';
 
@@ -34,9 +34,32 @@ var maleCount = function(array) {
 return males.length;
 };
 
-var femaleCount;
+var femaleCount = function(array){
+    // assign females the value of the reduce method with the following anonymous func
+    let females = _.reduce(array, function(seed, customer){
+        // if the current element's gender is female
+        if(customer.gender ==="female"){
+            // increment the seed
+            seed++;
+        }
+        // this is the return statement FOR THE CALLBACK INSIDE REDUCE
+        return seed;
+    // cryptically this is the initial value for the seed. It's down here because it's the third
+    // argument for reduce, after the func, hence after curly braces
+    }, 0);
+    // console.log(females);
+    return females;
+};
+
+// console.log(femaleCount(customers));
 
 var oldestCustomer;
+
+// this needs sommme kind of comparative logic, each against the prev...
+
+// take the 0 index age value and add it to the accumulator...call it oldest
+
+// also record the index of oldest... (or just assign oldest as the object that is currently oldes.)
 
 var youngestCustomer;
 
