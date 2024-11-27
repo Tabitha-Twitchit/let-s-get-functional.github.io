@@ -90,7 +90,39 @@ var youngestCustomer = function(array){
     return youngestName;
 };;
 
-var averageBalance;
+var averageBalance = function(array){
+    let divisor = array.length;
+    let sum = 0;
+    // let average = 0;
+    
+    sum = _.reduce(array, function(seed, customer){
+        // weird syntax here between chained methods and the regular expression
+        // the statement resolves the string method in parentheses before the outer
+        // number and finally applying it to the seed value.
+        return seed += Number(customer.balance.replace(/[$,]/g, ""));
+    }, 0);
+
+    let average = sum / divisor;
+    return average;
+    //  definite reduce problem, and definite seed problem because it generates new data
+
+    // go through arrays and accumulate the sum
+
+    // needs to drop leading dollar sign maybe and convert string to num
+    // somewhere in here
+    /*
+    let str = "$3,227.53";
+    let newStr = str.replace(/[$,]/g, "");
+
+    console.log(newStr); 
+    console.log(Number(newStr));
+    */
+
+    // bring the sum out and divide by array length
+
+};
+
+
 
 var firstLetterCount;
 
