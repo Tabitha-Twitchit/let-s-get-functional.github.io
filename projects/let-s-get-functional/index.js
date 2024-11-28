@@ -215,6 +215,13 @@ friendsCount(customers, "Olga Newton");
 
 var topThreeTags;
 
+// hrmmm...shove all tags from each object onto a new array...(pluck or something)
+
+// look for a method that tracks most popular (or use Sets data type maybe?)
+
+// create a "uniqe"  array and then loop the large array once for each element
+// of the unique array and increment a count for every time it matches? (That's a LOT of vars...)
+
 var genderCount;
 
 //////////////////////////////////////////////////////////////////////
