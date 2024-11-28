@@ -124,11 +124,94 @@ var averageBalance = function(array){
 
 
 
-var firstLetterCount;
+var firstLetterCount = function(array, char){
+    let total = 0;
 
-var friendFirstLetterCount;
+    total  = _.reduce(array, function(seed, customer){
+        if(customer.name[0].toLowerCase() === char.toLowerCase()){
+            seed++;
+        }
+        return seed;
+    }, 0);
+    return total;
+};
 
-var friendsCount;
+// the number as output indicates it still needs an accumulator
+
+// how to check correct char[0] or charAt? Also case insensitive
+
+// you could add all with the letter into an array and return the array length
+
+// the use of another input, almost seems like it wants somethings besides reduce
+
+
+var friendFirstLetterCount = function(array, givenName, char){
+    // in the streamlined version we assign found to be the object corresponding 
+    // to the given name. 
+    let found = array.find(customer => customer.name === givenName);
+    
+    // if this is Truthy, execute the logic...
+    if(found) {
+        // return a the result of a reduce function with this anonymous callback
+        // the callback refs the found obj's friends array, abd provides a usual
+        // accumulator var (count), a current friend to check, and a seed of 0 
+        return _.reduce(found.friends, (count, friend) => {
+            if (friend.name[0].toLowerCase() === char.toLowerCase()){
+                count++;
+            }
+            return count;
+        }, 0);
+    }
+    // A BIG DIF HERE is that we only return this 0 if the other logic isn't met
+    // e.g. no found customer, or no friends of the given letter.
+    return 0;
+
+    // leaving original, more verbos method for ref:
+    // total = _.reduce(found.friends, function(seed, currentFriend){
+    //     if(currentFriend.name[0].toLowerCase() === char.toLowerCase()){
+    //       seed++;
+    //     }
+    //     return seed;
+    // }, 0);
+    // return total;
+};
+
+// find a given object from the array based on a property value
+
+// access another property on that same object
+
+// iterate through all values of that property
+
+// named customer
+    // >friends list
+        // > each friend  
+
+// OK so the given customer is a name so I think we need to first find
+// the object with that name then call reduce...
+
+
+var friendsCount = function(array, friendName){
+    let outputArr = [];
+    
+    // hrm wondering if we could actually just for loop the outer loop
+    // THEN call a higher function on each to search the friends
+    for(let i = 0; i < array.length; i++){
+        if (_.some(array[i].friends, function(currentFriend){
+            return currentFriend.name.toLowerCase() === friendName.toLowerCase();
+            })) {
+                outputArr.push(array[i].name);
+            }
+    // console.log(array[i].name);
+    }
+    console.log(outputArr);
+    console.log(Array.isArray(outputArr));
+    return outputArr;
+};
+
+friendsCount(customers, "Olga Newton");
+// If a customer has X friend...
+    // Push customer's name into new array
+        // return array
 
 var topThreeTags;
 
