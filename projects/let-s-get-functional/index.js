@@ -204,25 +204,76 @@ var friendsCount = function(array, friendName){
     // console.log(array[i].name);
     }
     console.log(outputArr);
-    console.log(Array.isArray(outputArr));
+    console.log("Is this an array? " + Array.isArray(outputArr));
     return outputArr;
 };
 
-friendsCount(customers, "Olga Newton");
+// friendsCount(customers, "Olga Newton");
 // If a customer has X friend...
     // Push customer's name into new array
         // return array
 
-var topThreeTags;
+var topThreeTags = function(array){
+    let largeArray= [];
+    let trackerObj = {};
+    let outputArr = [];
 
-// hrmmm...shove all tags from each object onto a new array...(pluck or something)
+    // concatenate all tag array elements into one.
+    for (let i = 0; i < array.length; i++){
+        largeArray = array[i].tags.concat(largeArray);
+    }
+    // console.log(largeArray);
+    
+    // loop all elements of the large array
+    for (let key of largeArray){
+        // if the key DOES NOT exist already (not truthy would snag on a 0 value, which we need)
+        if(trackerObj[key] === undefined){
+            // create the key with the current element name, and a value of 0
+            trackerObj[key] = 0;
+        // if it is NOT UN defined--exists in both the large array and as a newly created key... 
+        } else if (trackerObj[key] !== undefined){
+            // increment its value
+            trackerObj[key]++;    
+        }
+    }
+    // console.log(trackerObj);
+    // figure out the highest value...
+    const valueArr = Object.values(trackerObj); 
+    // console.log(valueArr);
+    const highestVal = Math.max(...valueArr);
+    // console.log(highestVal);
 
-// look for a method that tracks most popular (or use Sets data type maybe?)
+for (let key in trackerObj){
+    if (trackerObj[key] === highestVal){
+        outputArr.push(key);
+    }
+}
+console.log(outputArr);
 
-// create a "uniqe"  array and then loop the large array once for each element
-// of the unique array and increment a count for every time it matches? (That's a LOT of vars...)
+if(outputArr.length === 3){
+    return outputArr
+} else if (outputArr.length < 3){
+    return "needs more tags";
+} else if (outputArr.length > 3){
+    return "more than 3 tags tied for top"
+}
 
-var genderCount;
+};
+topThreeTags(customers);
+
+// you would use something like the same approach of creating a trackerObj
+// and then checking if a gender doesn't exist and if it doesn't, creating it
+// and if it does incrementing it. Difference is this requires REDUCE
+
+// using reduce implies the trackerObject should be the accumulator, deceptively simple/
+
+var genderCount = function(array){
+    let genderArray = [];
+
+    for(let i = 0; i < arr; i++){
+        
+    }
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
