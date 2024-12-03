@@ -259,21 +259,33 @@ if(outputArr.length === 3){
 }
 
 };
-topThreeTags(customers);
+// topThreeTags(customers);
 
-// you would use something like the same approach of creating a trackerObj
-// and then checking if a gender doesn't exist and if it doesn't, creating it
-// and if it does incrementing it. Difference is this requires REDUCE
-
-// using reduce implies the trackerObject should be the accumulator, deceptively simple/
 
 var genderCount = function(array){
-    let genderArray = [];
 
-    for(let i = 0; i < arr; i++){
-        
-    }
+    // let genderArray = [];
+    // let initialObj = {};
+    
+    // for(let i = 0; i < array.length; i++){
+    //     genderArray.push(array[i].gender);
+    // }
+    // console.log(genderArray);
+
+    // // loop thru our array of genders and 
+    // let outputObj = _.reduce(genderArray, function(acc, key){
+    //     if(key in acc === undefined){
+    //         return acc[key] = 0;
+    //     } else if (key in acc !== undefined){
+    //         return acc[key]++;
+    //     }
+    // }, initialObj);
+
+    // console.log(outputObj);
+    // return outputObj;
 };
+
+genderCount(customers);
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
